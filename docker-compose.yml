@@ -17,17 +17,17 @@ services:
       - DB_HOST=db
       - DB_NAME=devdb
       - DB_USER=devuser
-      - DB_PASS=changeme
+      - DB_PASSWORD=changeme
     depends_on:
       - db
     
   db:
-    image: postgres:13-alpine
+    image: postgresql:13-alpine
     volumes:
       - dev-db-data:/var/lib/postgresql/data
     environment:
       - PostGRES_DB=devdb
-      - POSTGRES_USERS=devuser
+      - POSTGRES_USER=devuser
       - PostGRES_PASSWORD=changeme
 
 volumes:
