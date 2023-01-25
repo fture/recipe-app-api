@@ -130,4 +130,4 @@ dmypy.json
 
 # app
 
-core/settings
+core/
