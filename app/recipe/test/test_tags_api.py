@@ -8,14 +8,14 @@ from django.test import TestCase
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from core.models import Tag
+from core.models import *
 from recipe.serializers import TagSerializer
 
 TAGS_URL = reverse('recipe:tag-list')
 
 def create_user(email='hzdkv@example.com', password='testpass'):
     """Create a new user"""
-    return get_user_model().objects.create_user(email, password)
+    return get_user_model().objects.create_user(email=email, password=password)
 
 class PublicTagsApiTests(TestCase):
     """Test the publicly available tags API"""
