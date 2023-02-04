@@ -13,7 +13,7 @@ class UserManager(BaseUserManager):
     """Manager for user model"""
 
     def create_user(self, email, password=None, **extra_fields):
-        """Create ,save return a new user"""
+        """Create ,save return new user"""
         if not email:
             raise ValueError('Users must have an email address')
 
