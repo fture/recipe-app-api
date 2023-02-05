@@ -55,6 +55,7 @@ class Recipe(models.Model):
     link = models.CharField(max_length=255, blank=True)
     description = models.TextField(blank=True)
     tags = models.ManyToManyField('Tag')
+    ingredients = models.ManyToManyField('Ingredient')
 
     def __str__(self):
         """String for representing the Model object"""
@@ -62,6 +63,18 @@ class Recipe(models.Model):
 
 class Tag(models.Model):
     """Tag to be used for a recipe"""
+    name = models.CharField(max_length=255)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    
+    def __str__(self):
+        """String for representing the Model object"""
+        return self.name
+    
+class Ingredient(models.Model):
+    """Ingredient to be used in a recipe"""
     name = models.CharField(max_length=255)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
